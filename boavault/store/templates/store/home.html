@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Home</title>
-</head>
-<body>
-    <h1>Home</h1>
-</body>
-</html>
+{% extends "store/base.html" %}
+{% block content %}
+    {% for post in posts %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'post-detail' post.id %} "> {{ post.site }}</a>
+      <small class="text-muted">{{ post.date_posted }}</small>
+      </div>
+    <h2 class="article-title">{{ post.un }}</h2>
+    <p class="article-content">{{ post.pw }}</p>
+  </div>
+</article>
+    {% endfor %}
+{% endblock content %}
