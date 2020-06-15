@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['boavault.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'crispy_forms',
     'store.apps.StoreConfig',
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
      'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -123,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'proj4/static'),
 )
 
 CRISPY_FORMS_PACK = 'bootstrap4'
