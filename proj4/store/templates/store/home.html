@@ -3,22 +3,9 @@
 {% if user.is_authenticated %}
 <h1> Your Accounts </h1>
 <hr>
-<main role="main" class="container">
-<div class="row">
-<div class="col-md-8">
-</div>
-<div class="col-md-4">
-<div class="content-section">
-<h3>Quick Password Generator</h3>
-<form method="POST" >
-  {% csrf_token %}
-    <input type="submit" value="Generate" name="print_btn" class="btn btn-outline-info">
-</form>
-</div>
-</div>
-</main>
-    {% for post in posts %}
 
+
+    {% for post in posts %}
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
@@ -30,6 +17,7 @@
   </div>
 </article>
     {% endfor %}
+
 {% else %}
   <h1>The free password tracker you have been waiting for!</h1>
   <hr>

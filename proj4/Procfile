@@ -1,1 +1,2 @@
 web: gunicorn proj4.wsgi
+release: python manage.py migrate

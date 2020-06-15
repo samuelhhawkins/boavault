@@ -1,6 +1,47 @@
 {% extends "store/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="col-md-4">
+<div class="content-section">
+<h3>Quick Password Generator</h3>
+<form method="update" >
+  {% csrf_token %}
+    <input type="submit" value="Generate" name="print_btn" id=”b1″ class="btn btn-outline-info">
+
+<script>
+
+$(document).ready(generatePassword(16){
+
+$("#b1").click(generatePassword(16){
+
+$.ajax({
+
+method: "POST",
+
+url: "post/new/",
+
+data: {"b1" : value},
+
+dataType: "text",
+
+success: generatePassword(result){
+
+var data=JSON.parse(result);
+
+console.log(result);
+
+}
+
+});
+
+});
+
+</script>
+    <p class='output'  value = 'result'></p>
+</form>
+</div>
+</div>
+
     <div class = "content-section">
       <form method="POST">
           {% csrf_token %}
