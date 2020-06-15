@@ -4,6 +4,12 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+class NewNew(models.Model):
+    npw = models.CharField(max_length=25)
+    def __str__(self):
+        return self.site
+
+
 class Post(models.Model):
     site = models.CharField(max_length=100)
     email = models.CharField(max_length=100)

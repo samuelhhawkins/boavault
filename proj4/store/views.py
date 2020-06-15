@@ -1,13 +1,38 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView #, GenView
 from .models import Post
+
+
+# class PostGenPW(GenView):
+#     model = Post
+#     fields = [ 'npw' ]
+#     success_url = '/'
+#     def generatePassword(num):
+# 	    password = ''
+#
+#     for n in range(num):
+#     	x = random.randint(0,94)
+#     	password += string.printable[x]
+#         return password
+# def form_valid(self, form):
+#     form.instance.author = self.request.user
+# return super().form_valid(form)
 
 
 def home(request):
     context = {
-    'posts': Post.objects.all()
+    'posts': Post.objects.all(),
     }
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
     return render(request, 'store/home.html', context)
 
 class PostListView(ListView):
