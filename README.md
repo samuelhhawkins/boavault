@@ -63,4 +63,4 @@ Standard Readme follows the [Contributor Covenant](http://contributor-covenant.o
 
 ## License
 
-Samuel Hawkins for all to use and fuck with!
+Samuel Hawkins free for all!!
